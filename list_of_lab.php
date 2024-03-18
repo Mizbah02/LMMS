@@ -14,23 +14,21 @@
     <body>
         <?php
             
-            $sql = "SELECT * FROM LAB ";
+            $sql = "SELECT * FROM LAB ORDER BY Name ASC ";
             
             $query = $conn->query($sql);
 
-            echo"<table border = '1' ><tr> <th> Room_no </th> <th> Name </th> <th> Floor </th> <th> Action </th> </tr>";
+            echo"<table border = '1' ><tr>  <th> Name </th> <th> Action </th> </tr>";
             while($data = mysqli_fetch_assoc(  $query ))
             {
-                $room = $data['Room_no'];
                 $name = $data['Name'];
-                $floor = $data['Floor'];
                 $id = $data['Serial'];
 
                 echo "<tr>
-                      <td>$room</td> 
+                    
                       <td>$name</td> 
-                      <td>$floor</td>
-                      <td><a href = 'edit_lab.php?id=$id'>Edit</td>
+                     
+                      <td><a href ='edit_lab.php?id=$id'>Edit</td>
                       </tr>";
             }
             
